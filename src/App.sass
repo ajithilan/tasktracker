@@ -1,0 +1,603 @@
+@mixin flex
+    display: flex
+    justify-content: center
+    align-items: center
+
+@mixin flex-col
+    display: flex
+    flex-direction: column
+
+@mixin shadow
+    background: rgba(245,245,245,.2)
+    border: solid 1px #77777721
+    box-shadow: -2px 2px 4px -2px rgba(0,0,0,0.1)
+
+@mixin filter-styling
+    height: 32px
+    font-family: "Poppins", sans-serif
+    font-size: 14px
+    font-weight: 500
+    color: rgba(87, 87, 87, 0.87)
+
+body
+    margin: 0
+    font-family: "Poppins", sans-serif
+    font-weight: 500
+    overflow: hidden
+
+.App
+    @include flex-col
+    width: 100dvw
+    height: 100dvh
+    color: #263238be
+    text-transform: capitalize
+    box-sizing: border-box
+    background:  #EDF4F2
+    overflow: hidden
+
+    *
+        color: #31473A
+
+.topbar-comp
+    @include flex
+    justify-content: space-between
+    min-height: 100px
+    height: fit-content
+    padding: 0px 40px
+    box-shadow: 0 0 20px 6px rgba(0,0,0,.1)
+    z-index: 10
+
+.topbar-detail
+    @include flex-col
+    justify-content: center
+    align-items: end
+    gap: 10px
+    height: 100%
+    padding: 12px 0
+    box-sizing: border-box
+
+.topbar-title
+    font-size: 62px
+    pointer-events: none
+    color: #31473A
+    line-height: 0
+    transition: .3s
+
+.basic-filterbar
+    display: flex
+    justify-content: flex-end
+    gap: 20px
+
+.filterbar-comp
+    @include flex-col
+    justify-content: space-around
+    position: relative
+    width: 350px
+    min-height: 400px
+    height: 100%
+    max-height: 700px
+    padding: 20px 32px
+    border-radius: 8px
+    color: rgba(0,0,0,.8)
+    background: rgba(255,255,255,.99)
+    box-sizing: border-box
+    overflow: hidden
+    z-index: 2
+    border: solid 2px #4090e0bb
+    box-shadow: -16px 10px 0 0px #4090e0bb
+    transition: all .3s
+
+.filterby-name-container
+    @include flex
+    gap: 10px
+    white-space: nowrap
+
+.filterby-name
+    width: 100%
+    border-radius: 4px
+    text-align: center
+    @include shadow
+    @include filter-styling
+
+    &::placeholder
+        font-size: 12px
+        text-align: center
+        transition: color .2s
+    
+    &:focus
+        outline: none
+
+        &::placeholder
+            color: transparent
+
+.filterby-priority
+    @include flex
+    white-space: nowrap
+    gap: 10px
+    margin: 0
+
+.filterby-priority-comp
+    @include flex
+    width: 100%
+    flex-wrap: nowrap
+    height: fit-content
+    border-radius: 4px
+    border: solid 1px #77777721
+    box-shadow: -2px 2px 4px -2px rgba(0,0,0,0.1)
+
+.priority-btn
+    width: 100%
+    max-width: 100px
+    border: none
+    background: rgba(245,245,245,.2)
+    transition: background .1s
+    @include flex
+    @include filter-styling
+
+    &:hover
+        background-color: whitesmoke
+
+    &:active
+        background-color: rgb(233, 233, 233)
+
+    &.active
+        background-color: #4d79cf
+        color: white
+
+.priority-btn-P0
+    border-right: solid 2px rgba(0,0,0,.1)
+    border-radius: 4px 0px 0px 4px
+
+.priority-btn-P2
+    border-left: solid 2px rgba(0,0,0,.1)
+    border-radius: 0px 4px 4px 0px
+
+.filterby-sort
+    @include flex
+
+.filterby-date
+    @include flex
+    flex-direction: column
+    gap: 20px
+
+    div
+        @include flex
+        width: 100%
+        gap: 10px
+
+        section
+            @include flex-col
+            gap: 6px
+            width: 100%
+            height: 100%
+
+            span
+                width: 100%
+
+    input
+        width: 100%
+        min-width: 50px
+        max-width: 100%
+        height: 2em
+        border: none
+        border-radius: 4px
+        box-sizing: border-box
+        padding: 4px
+        @include shadow
+        @include filter-styling
+
+.filter-btngrp
+    display: flex
+    justify-content: space-between
+    gap: 10px
+    white-space: nowrap
+
+.addnewtask
+    width: 300px
+    height:  400px
+    @include flex-col
+    justify-content: space-around
+    color: #4d79cf
+    overflow: hidden
+
+    input,textarea,select
+        font-family: "Poppins", sans-serif
+        border: none
+        border-radius: 4px
+
+.form-details
+    width: 100%
+    place-self: center
+    padding: 10px
+    font-size: 16px
+    box-sizing: border-box
+
+    &::placeholder
+        color: #3f64af
+        padding-left: 10px
+
+    &:focus
+        outline: none
+
+        &::placeholder
+            opacity: 0
+
+.form-select
+    display: flex
+    gap: 20px
+
+.form-description
+    height: 100px
+
+.form-priority, .form-status
+    text-align: center
+    color: #3f64af
+
+.edit-btngrp
+    min-width: 100%
+    display: flex
+    justify-content: space-between
+    gap: 10px
+        
+.taskbar-comp
+    flex: 1
+    @include flex
+    box-sizing: border-box
+    overflow: hidden
+
+.quickactions-container
+    @include flex
+    justify-content: space-between
+    flex: 1
+    height: 100%
+    gap: 60px
+    padding: 50px 0
+    box-sizing: border-box
+
+.scroll-easy
+    @include flex-col
+    justify-content: space-between
+    width: fit-content
+    height: 100%
+    box-sizing: border-box
+    padding: 50px 0
+
+.status-btn
+    width: 100px
+    height: 34px
+    border-radius: 100px
+
+.task-container
+    flex: 2
+    @include flex-col
+    align-items: center
+    width: 100%
+    height: 100%
+    gap: 40px
+    padding: 50px 52px 50px 70px
+    overflow-y: auto
+    overflow-x: hidden
+    scroll-padding-block: 200px
+    box-sizing: border-box
+
+.no-tasks
+    height: 100%
+    @include flex
+
+.task-section
+    display: grid
+    min-width: 20%
+    width: 100%
+    max-width: 1000px
+    gap: 24px
+    padding: 40px 60px
+    border-radius: 16px
+    background: rgba(255,255,255,.99)
+    box-sizing: border-box
+    transition: .3s
+
+.no-active-tasks
+    text-align: center
+
+.task
+    padding: 10px 60px
+    height: fit-content
+    box-sizing: border-box
+    transition: padding .3s
+
+.task-summary
+    gap: 6px
+
+.task-summary-container
+    width: 100%
+    display: flex
+    justify-content: center
+
+    &.summary-col
+        flex-direction: column
+
+.task-summary-container.summary-col
+    .task-title
+        white-space: normal
+
+    .task-team
+        place-self: start
+        white-space: normal
+        padding: 0
+
+.task-title
+    flex: 4
+    min-width: 100px
+    width: 100px
+    height: 100%
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+    font-size: 18px
+    font-weight: 600
+    padding-right: 10px
+    color: #313638d8
+
+.task-team
+    @include flex
+    flex: 1
+    padding: 0 20px
+    white-space: nowrap
+    color: #598aecd3
+    font-size: 16px
+
+    span
+        padding-left: 10px
+        color: #263238be
+
+.task-priority
+    @include flex
+    width: 30px
+    height: 30px
+    background: #c7d9fd
+    border-radius: 4px
+    box-shadow: 0 0 6px -2px rgba(0,0,0,0.2)
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    font-size: 14px
+    line-height: 0
+
+.exp-task-priority
+    color: #598aecd3
+    
+    span
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+        font-size: 14px
+        padding-left: 10px
+        color: #263238be
+
+.task-details
+    span
+        display: flex
+        text-align: start
+        color: #598aecd3
+
+        span
+            padding: 0px 10px
+            color: #263238be
+
+.task-desc
+    padding: 10px
+    line-height: 24px
+    color: #263238be !important
+    background: rgba(201, 201, 201, 0.3)
+    border-radius: 4px
+    margin: 10px 0
+
+        
+
+@mixin border($color, $x: -16px, $y: 8px)
+    border: solid 2px $color
+    box-shadow: $x $y 0px 0px $color
+
+.task-pending
+    @include border(#7d7c7ccc)
+
+.task-inprogress
+    @include border(#ffae45bd)
+
+.task-completed
+    @include border(#008170d5)
+
+.task-deployed
+    @include border(#1b1a55cb)
+
+.task-deffered
+    @include border(#ff8f95e1)
+
+
+//scrollbar
+
+::-webkit-scrollbar
+    width: 12px
+
+::-webkit-scrollbar-track
+    background: transparent
+
+::-webkit-scrollbar-thumb
+    height: 56px
+    border-radius: 2px
+    border: 2px solid gray
+    background-clip: content-box
+    background-color: transparent
+
+
+//Media Queries
+
+@media (max-width: 400px)
+    .topbar-comp
+        padding: 0 20px
+
+    .topbar-title
+        font-size: 28px
+
+@media (400px <= width <= 480px)
+    .topbar-comp
+        padding: 0 20px
+
+    .topbar-title
+        font-size: 32px
+
+@media (max-width: 480px)
+    .topbar-title
+        position: relative
+        top: -24px
+
+    .topbar-comp button
+        font-size: 10px
+
+    .basic-filterbar
+        gap: 10px
+
+    .filterbar-comp
+        width: 300px
+        height: 500px
+        padding: 10px 20px
+        font-size: 12px
+        background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)
+
+    .priority-btn
+        font-size: 12px
+
+    .filterby-date
+        div
+            gap: 6px
+
+        input
+            font-size: 12px
+
+    .addnewtask
+        width: 100%
+
+    .form-details
+        font-size: 10px
+
+    .scroll-easy
+        padding: 16px 20px
+
+    .status-btn
+        min-height: 28px
+        height: 28px
+        font-size: 8px !important
+        font-weight: 700 !important
+
+    .task-container
+        padding: 0 20px 50px 30px
+        gap: 24px
+
+    .task-section
+        gap: 12px
+        padding: 20px
+
+    .task
+        border-radius: 6px !important
+        padding: 0 20px
+
+    .task-title
+        font-size: 14px
+
+    .task-priority
+        width: 25px
+        height: 25px
+        font-size: 12px
+
+    .exp-task-priority
+        font-size: 12px
+        span
+            font-size: 12px
+
+    .task-team, .task-details, .no-tasks, .no-active-tasks
+        font-size: 12px
+
+    .task-pending
+        @include border(#7d7c7ccc, -10px, 8px)
+
+    .task-inprogress
+        @include border(#ffae45bd, -10px, 8px)
+
+    .task-completed
+        @include border(#008170d5, -10px, 8px)
+
+    .task-deployed
+        @include border(#1b1a55cb, -10px, 8px)
+
+    .task-deffered
+        @include border(#ff8f95e1, -10px, 8px)
+
+    *::-webkit-scrollbar
+        display: none
+
+@media (481px <= width <= 700px)
+    .topbar-comp
+        padding: 0 30px
+
+    .topbar-title
+        font-size: 38px
+
+    .scroll-easy
+        padding: 16px 30px
+
+    .topbar-comp button
+        font-size: 10px
+
+    .task-container
+        padding: 0 20px 50px 40px
+
+    .task
+        padding: 10px 30px
+
+    .task-title
+        font-size: 16px
+
+    .task-team, .exp-task-priority, .task-details
+        font-size: 14px
+
+@media (700px <= width <= 900px)
+    .topbar-title
+        font-size: 48px
+
+    .scroll-easy
+        padding: 30px 60px
+
+    .task-container
+        padding: 0 50px 50px 70px
+
+@media (max-width: 900px)
+    .taskbar-comp
+        flex-direction: column
+
+    .quickactions-container
+        width: 100%
+        padding: 0
+
+    .scroll-easy
+        flex-direction: row
+        justify-content: space-between
+        width: 100%
+        height: fit-content
+        gap: 10px
+
+    .task-section
+        width: 100%
+        max-width: 100%
+
+@media (500px <= width <= 900px)
+    .task-section
+        padding: 40px 46px
+
+@media (max-width: 1200px)
+    .quickactions-container
+        flex: 0
+
+    .filterbar-comp
+        box-shadow: none
+
+@media (421px <= width <= 1200px)
+    .filterbar-comp
+        height: 600px
+    
+@media (min-width: 1920px)
